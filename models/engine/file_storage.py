@@ -4,8 +4,13 @@ This module contains the FileStorage class.
 
 import json
 from os.path import exists
-from models.user import User  # Import User model
-from models.base_model import BaseModel  # Import BaseModel
+from models.user import User
+from models.base_model import BaseModel
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 class FileStorage:
     """Serializes instances to a JSON file and deserializes JSON file to instances."""
@@ -33,9 +38,16 @@ class FileStorage:
         if exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 obj_dict = json.load(file)
+                class_map = {
+                    "BaseModel": BaseModel,
+                    "User": User,
+                    "State": State,
+                    "City": City,
+                    "Amenity": Amenity,
+                    "Place": Place,
+                    "Review": Review,
+                }
                 for key, value in obj_dict.items():
                     class_name = value["__class__"]
-                    if class_name == "BaseModel":
-                        self.__objects[key] = BaseModel(**value)
-                    elif class_name == "User":
-                        self.__objects[key] = User(**value)
+                    if class_name in class_map:
+                        self.__objects[key] = class_map[class_name](**value)
