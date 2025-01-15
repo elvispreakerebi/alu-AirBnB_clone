@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program."""
         return True
 
-    def do_EOF(self, arg):
+    def do_EOF(self):
         """Handle EOF to exit the program."""
         print()
         return True
@@ -40,6 +40,20 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Do nothing on empty input line."""
         pass
+
+    def do_help(self, arg):
+        """Display help information."""
+        print("Commands:")
+        print("create <class> - Create a new instance of a class.")
+        print("show <class> <id> - Show the string representation of an instance.")
+        print("destroy <class> <id> - Delete an instance based on the class name and id.")
+        print("all <class> - Show all instances of a class, "
+              "or all classes if no class is specified."
+        )
+        print(
+            "update <class> <id> <attribute_name> <attribute_value> - Update an instance "
+            "based on the class name and id."
+        )
 
     def do_create(self, arg):
         """Create a new instance of a class."""
