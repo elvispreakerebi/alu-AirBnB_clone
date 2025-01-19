@@ -7,34 +7,66 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
-    position: relative; /* For positioning child elements */
+    position: relative;
 }
 
 /* Locations and Amenities filters */
 .filters .locations,
 .filters .amenities {
     height: 100%;
-    width: 25%; /* Each filter takes 25% width */
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 10px;
+    position: relative;
 }
 
 .filters .locations {
-    border-right: 1px solid #DDDDDD; /* Border only for the left filter */
+    border-right: 1px solid #DDDDDD;
 }
 
 /* Titles inside the filters */
 .filters h3 {
     font-weight: 600;
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
 
 .filters h4 {
     font-weight: 400;
     font-size: 14px;
-    margin: 5px 0 0; /* Add spacing between title and subtitle */
+    margin: 5px 0 0;
+}
+
+/* Dropdown (popover) styles */
+.popover {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FAFAFA;
+    width: 100%; /* Match width of the parent filter div */
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 10px;
+    list-style: none;
+}
+
+.popover li {
+    margin: 5px 0;
+}
+
+/* Header in dropdowns */
+.popover h2 {
+    font-size: 16px;
+    margin: 0 0 5px;
+    font-weight: 600;
+}
+
+/* Show dropdown on hover */
+.locations:hover .popover,
+.amenities:hover .popover {
+    display: block;
 }
 
 /* Styles for the search button */
@@ -49,10 +81,10 @@
     position: absolute;
     right: 30px;
     top: 50%;
-    transform: translateY(-50%); /* Centers button vertically */
+    transform: translateY(-50%);
     cursor: pointer;
 }
 
 .search-btn:hover {
-    opacity: 0.9; /* Reduces opacity on hover */
+    opacity: 0.9;
 }
