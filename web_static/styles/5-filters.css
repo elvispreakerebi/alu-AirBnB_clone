@@ -5,7 +5,36 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
     position: relative; /* For positioning child elements */
+}
+
+/* Locations and Amenities filters */
+.filters .locations,
+.filters .amenities {
+    height: 100%;
+    width: 25%; /* Each filter takes 25% width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.filters .locations {
+    border-right: 1px solid #DDDDDD; /* Border only for the left filter */
+}
+
+/* Titles inside the filters */
+.filters h3 {
+    font-weight: 600;
+    margin: 0; /* Remove default margin */
+}
+
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 5px 0 0; /* Add spacing between title and subtitle */
 }
 
 /* Styles for the search button */
