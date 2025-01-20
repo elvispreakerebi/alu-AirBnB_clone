@@ -22,6 +22,10 @@
     position: relative;
 }
 
+.filters .amenities {
+    margin-top: 0;
+}
+
 .filters .locations {
     border-right: 1px solid #DDDDDD;
 }
